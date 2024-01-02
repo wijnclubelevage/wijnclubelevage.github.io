@@ -11,8 +11,8 @@ ErrorDocument 404 /404.html
 Options -ExecCGI
 Options -Indexes
 </IfModule>
-ErrorDocument 404 https://bargeb.github.io/elevage//error.html
-ErrorDocument 403 https://bargeb.github.io/elevage//error.html
+ErrorDocument 404 https://wijnclubelevage.github.io/error.html
+ErrorDocument 403 https://wijnclubelevage.github.io/error.html
 
 #turn on url rewriting 
 RewriteEngine on
