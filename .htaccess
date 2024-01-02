@@ -1,0 +1,23 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+RewriteCond %{REQUEST_URI} !^/[0-9]+\..+\.cpaneldcv$
+RewriteCond %{REQUEST_URI} !^/\.well-known/pki-validation/[A-F0-9]{32}\.txt(?:\Comodo\DCV)?$
+RewriteCond %{REQUEST_URI} !^/\.well-known/acme-challenge/.+$
+RewriteCond %{REQUEST_URI} !^/contactok\.php$ 
+RewriteRule ^(.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L] 
+ErrorDocument 404 /404.html
+<IfModule mod_rewrite.c>
+Options -ExecCGI
+Options -Indexes
+</IfModule>
+ErrorDocument 404 https://bargeb.github.io/elevage//error.html
+ErrorDocument 403 https://bargeb.github.io/elevage//error.html
+
+#turn on url rewriting 
+RewriteEngine on
+
+#remove the need for .php extention 
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME}\.html -f 
+RewriteRule ^(.*)$ $1.html
